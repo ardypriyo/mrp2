@@ -74,6 +74,10 @@
                                             <input type="text" name="qty" class="form-control" placeholder="500" autocomplete="off">
                                         </div>
                                         <div class="form-group">
+                                            <label class="control-label">Qty Per Bag</label>
+                                            <input type="text" name="qty2" class="form-control" placeholder="500" autocomplete="off">
+                                        </div>
+                                        <div class="form-group">
                                             <label class="control-label">Project</label>
                                             <select name="project" class="form-control select2bs4" style="width: 100%;">
                                                 <option value="">Pilih Project</option>
@@ -103,11 +107,22 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label">Other</label>
-                                            <select name="other" class="form-control select2bs4" style="width: 100%;">
+                                            <select name="other" class="form-control select2bs4" style="width: 100%;" id="properties">
                                                 <option value="">Other</option>
                                                 <option value="1">Domestik</option>
                                                 <option value="2">Esport</option>
+                                                <option value="3">Virgin</option>
+                                                <option value="4">Master Batch</option>
+                                                <option value="5">Mixing</option>
                                             </select>
+                                        </div>
+                                        <div class="form-group" id="virgin">
+                                            <label class="control-label">Virgin</label>
+                                            <input type="text" name="virgin" class="form-control" maxlength="11">
+                                        </div>
+                                        <div class="form-group" id="mb">
+                                            <label class="control-label">Master Batch</label>
+                                            <input type="text" name="mb" class="form-control" maxlength="11">
                                         </div>
                                     </div>
 
@@ -209,5 +224,25 @@
                 var modal = $(this);
 
                 modal.find('.modal-body input').val(div)
+            });
+
+            $('document').ready(function(){
+                $('#virgin').hide();
+                $('#mb').hide();
+
+                $('#properties').change(function(){
+                    var kode = $(this).val();
+
+                    if(kode == '5')
+                    {
+                        $('#virgin').show();
+                        $('#mb').show();
+                    }
+                    else
+                    {
+                        $('#virgin').hide();
+                        $('#mb').hide();
+                    }
+                });
             });
         </script>

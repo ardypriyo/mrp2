@@ -11,6 +11,15 @@
             return $this->db->get($table)->result();
         }
 
+        function loadMaster($table, $tipe)
+        {
+            $this->db->where('tipe_material', $tipe);
+            $this->db->where('status', '1');
+            $this->db->order_by('kode', 'ASC');
+
+            return $this->db->get($table)->result();
+        }
+
         function cekKode($table, $kode)
         {
             $this->db->where('kode', $kode);
@@ -56,6 +65,17 @@
             $this->db->join('customer', 'material.customer = customer.id', 'LEFT');
             $this->db->where('material.status', '1');
             $this->db->order_by('material.kode', 'ASC');
+            
+            return $this->db->get()->result();
+        }
+
+        function getBOM($id)
+        {
+            $this->db->select('bom.*, material.nama as nama_material, satuan.nama as nama_satuan');
+            $this->db->from('bom');
+            $this->db->where('bom.id', $id);
+            $this->db->join('material', 'bom.material = material.id', 'LEFT');
+            $this->db->join('satuan', 'bom.satuan = satuan.id', 'LEFT');
             
             return $this->db->get()->result();
         }

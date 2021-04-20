@@ -74,6 +74,10 @@
                                             <input type="text" name="qty" class="form-control" value="<?php echo $edit['qty'] ?>" placeholder="500" autocomplete="off">
                                         </div>
                                         <div class="form-group">
+                                            <label class="control-label">Qty Per Bag</label>
+                                            <input type="text" name="qty2" class="form-control" value="<?php echo $edit['qty2']; ?>" placeholder="500" autocomplete="off">
+                                        </div>
+                                        <div class="form-group">
                                             <label class="control-label">Project</label>
                                             <select name="project" class="form-control select2bs4" style="width: 100%;">
                                                 <option value="">Pilih Project</option>
@@ -103,12 +107,35 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label">Other</label>
-                                            <select name="other" class="form-control select2bs4" style="width: 100%;">
+                                            <select name="other" class="form-control select2bs4" style="width: 100%;" id="properties">
                                                 <option value="">Other</option>
                                                 <option value="1" <?php if($edit['other'] == '1') { ?> selected <?php } ?>>Domestik</option>
                                                 <option value="2" <?php if($edit['other'] == '2') { ?> selected <?php } ?>>Esport</option>
+                                                <option value="3" <?php if($edit['other'] == '2') { ?> selected <?php } ?>>Virgin</option>
+                                                <option value="4" <?php if($edit['other'] == '2') { ?> selected <?php } ?>>Master Batch</option>
+                                                <option value="5" <?php if($edit['other'] == '2') { ?> selected <?php } ?>>Mixing</option>
                                             </select>
                                         </div>
+                                        <?php
+                                            if($edit['other'] === '5')
+                                            {
+                                                ?>
+                                                    <div class="form-group" id="virgin">
+                                                        <label class="control-label">Virgin</label>
+                                                        <input type="text" name="virgin" class="form-control" maxlength="11" value="<?php echo $edit['virgin']; ?>">
+                                                    </div>
+                                                <?php
+                                            }
+                                            if($edit['other'] === '5')
+                                            {
+                                                ?>
+                                                    <div class="form-group" id="mb">
+                                                        <label class="control-label">Master Batch</label>
+                                                        <input type="text" name="mb" class="form-control" maxlength="11" value="<?php echo $edit['mb'] ?>">
+                                                    </div>
+                                                <?php
+                                            }
+                                        ?>                                        
                                         <!-- <div class="form-group"> -->
                                             <!-- <label class="control-label">Id</label> -->
                                             <input type="hidden" name="id" class="form-control" readonly value="<?php echo $edit['id']; ?>">
@@ -213,5 +240,22 @@
                 var modal = $(this);
 
                 modal.find('.modal-body input').val(div)
+            });
+
+            $('document').ready(function(){                
+                $('#properties').change(function(){
+                    var kode = $(this).val();
+
+                    if(kode == '5')
+                    {
+                        $('#virgin').show();
+                        $('#mb').show();
+                    }
+                    else
+                    {
+                        $('#virgin').hide();
+                        $('#mb').hide();
+                    }
+                });
             });
         </script>

@@ -35,6 +35,9 @@
             $other = $this->input->post('other');
             $berat = $this->input->post('berat');
             $qty = $this->input->post('qty');
+            $qty2 = $this->input->post('qty2');
+            $virgin = $this->input->post('virgin');
+            $mb = $this->input->post('mb');
 
             $result = $this->M_master->cekKode('material', $kode);
             //echo $kode;
@@ -56,7 +59,10 @@
                     'berat'         => $berat,
                     'qty'           => $qty,
                     'other'         => $other,
-                    'status'        => '1'
+                    'status'        => '1',
+                    'qtyBag'        => $qty2,
+                    'virgin'        => $virgin,
+                    'mb'            => $mb
                 );
 
                 $insert = $this->M_crud->insert('material', $data);
@@ -89,6 +95,9 @@
                     $berat          = $row->berat;
                     $qty            = $row->qty;
                     $other          = $row->other;
+                    $qtyBag         = $row->qtyBag;
+                    $virgin         = $row->virgin;
+                    $mb             = $row->mb;
                 }
 
                 $data['edit'] = array(
@@ -102,7 +111,10 @@
                     'customer'      => $customer,
                     'berat'         => $berat,
                     'qty'           => $qty,
-                    'other'         => $other
+                    'other'         => $other,
+                    'qty2'          => $qtyBag,
+                    'virgin'        => $virgin,
+                    'mb'            => $mb
                 );
 
                 $data['judul'] = 'Master Material';
