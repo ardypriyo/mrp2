@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2021 at 11:17 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 5.6.40
+-- Generation Time: Apr 21, 2021 at 10:18 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -170,40 +169,40 @@ INSERT INTO `material` (`id`, `kode`, `kode_rm`, `nama`, `cust_nama`, `spesifika
 (54, 'PRT-009', NULL, 'Partition BBM01', NULL, 'Carton, 640mm x 415mm x 235mm_3 Barrier', '4', '1', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
 (55, 'PRT-010', NULL, 'Partition F', NULL, 'Carton, 525mm x 362mm x 90mm_4 Barrier', '4', '1', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
 (56, 'PRT-011', NULL, 'Partition G', NULL, 'Carton, 525mm x 308mm x 85mm_4 Barrier', '4', '1', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(57, 'PA66 A0210', NULL, 'Nylon Plastic Materials', NULL, 'BLACK,PA66 A0210', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(58, 'PA66+PPE A0230', NULL, 'Nylon Plastic Materials', NULL, 'BLACK,PA66+PPE A0230', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(59, 'PA66+TPE(TR161)-1', NULL, 'Nylon Plastic Materials', NULL, 'Black,PA66+TPE(TR161),230', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(60, 'PA66+TPE(TR161)-2', NULL, 'Nylon Plastic Materials', NULL, 'ORANGE,PA66+TPE(TR161)250', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(61, 'PA66103FHS', NULL, 'Nylon Material', NULL, 'BLACK,PPA66103FHS', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(62, 'PA66A3W', NULL, 'Nylon Plastic Materials', NULL, 'Black,PA66 A3W', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(63, 'PA66FR250', NULL, 'Nylon Plastic Materials', NULL, 'BLACK,PA66FR250', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(64, 'PA66GTX951W-7001', NULL, 'Nylon Plastic Materials', NULL, 'BLACK,PA66+PPE GTX951W-7001', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(65, 'PBT-1100-204B', NULL, 'Polybutylene Terephthalate', NULL, 'BLACK,PBT-1100-204B', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(66, 'PBT2002', NULL, 'Polybutylene Terephthalate', NULL, 'NAATURAL,PBT 2002', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(67, 'PBT-GF-1006', NULL, 'Polybutylene Terephthalate', NULL, 'WHITE,PBT-GF-1006-Natural', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(68, 'POM(NW-02)', NULL, 'Polyoxymethylene Plastic Material', NULL, 'Natural, POM(NW-02)', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(69, 'PP57MNK10', NULL, 'Polypropylene Plastic Materials', NULL, 'NATURAL,PP57MNK10', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(70, 'PP8726RT-TH', NULL, 'Polypropylene Plastic Materials', NULL, 'ORANGE,PPB8726RT TH', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(71, 'PPBF970A1', NULL, 'Polypropylene Plastic Materials', NULL, 'Natural, PPBF970A1', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(72, 'PPBJ500', NULL, 'Polypropylene Plastic Materials', NULL, 'NATURAL,PPBJ500', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(73, 'PPBJ550', NULL, 'Polypropylene Plastic Materials', NULL, 'Natural, PPBJ550', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(74, 'PPC606W', NULL, 'Polypropylene Plastic Materials', NULL, 'BLACK,PPC606W', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(75, 'PPC616WT', NULL, 'Polypropylene Plastic Materials', NULL, 'Black,PPC616WT', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(76, 'PPJ715M', NULL, 'Polypropylene Plastic Material', NULL, 'NATURAL,PPJ715M', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(77, 'PPTC426BT', NULL, 'Polypropylene Plastic Materials', NULL, 'Black,PPTC426BT', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(78, 'PPTD10', NULL, 'Polypropylene Plastic Materials', NULL, 'Black,PP TD10(3510H-10000)', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(79, 'RM', NULL, 'Polypropylene Plastic Materials', NULL, 'Natural Color,PA66 1300S', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(80, 'ZYLPPBF970AI', NULL, 'Polypropylene Plastic Materials', NULL, 'Natural Color,PP', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(81, 'CM110', NULL, 'Master Batch', NULL, 'Black, Master Batch, cm110', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(82, 'ECOMA_A-FR41', NULL, 'Master Batch', NULL, 'Black, Master Batch, ECOMA A-FR41', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(83, 'ECOMA_A-FR46', NULL, 'Master Batch', NULL, 'Black, Master Batch, ECOMA A-FR46, Manufacturer : TEAMPLAST THAI CO.,LTD, Origin : Thailand', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(84, 'EP-1991-20A', NULL, 'Master Batch', NULL, 'Orange,Master Batch,EP-1991-20A', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(85, 'P1-1212-20', NULL, 'Master Batch', NULL, 'Black, Master Batch, P1-1212-20', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(86, 'PE4005', NULL, 'Master Batch', NULL, 'Black,Master Batch,PE 4005', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(87, 'PH-6728', NULL, 'Master Batch', NULL, 'Black, Master Batch, PH-6728', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(88, 'PH-6728BK', NULL, 'Master Batch', NULL, 'Black, Master Batch, PH-6728BK', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(89, 'PPM17N5998BK', NULL, 'Master Batch', NULL, 'Black, Master Batch, PPM17N5998', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
-(90, 'SMTY', NULL, 'Master Batch', NULL, 'Black, Master Batch, SMTY', '2', '2', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
+(57, 'PA66 A0210', NULL, 'Nylon Plastic Materials', NULL, 'BLACK,PA66 A0210', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '3', 0, '0.00'),
+(58, 'PA66+PPE A0230', NULL, 'Nylon Plastic Materials', NULL, 'BLACK,PA66+PPE A0230', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '3', 0, '0.00'),
+(59, 'PA66+TPE(TR161)-1', NULL, 'Nylon Plastic Materials', NULL, 'Black,PA66+TPE(TR161),230', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '3', 0, '0.00'),
+(60, 'PA66+TPE(TR161)-2', NULL, 'Nylon Plastic Materials', NULL, 'ORANGE,PA66+TPE(TR161)250', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '3', 0, '0.00'),
+(61, 'PA66103FHS', NULL, 'Nylon Material', NULL, 'BLACK,PPA66103FHS', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '3', 0, '0.00'),
+(62, 'PA66A3W', NULL, 'Nylon Plastic Materials', NULL, 'Black,PA66 A3W', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '3', 0, '0.00'),
+(63, 'PA66FR250', NULL, 'Nylon Plastic Materials', NULL, 'BLACK,PA66FR250', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '3', 0, '0.00'),
+(64, 'PA66GTX951W-7001', NULL, 'Nylon Plastic Materials', NULL, 'BLACK,PA66+PPE GTX951W-7001', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '3', 0, '0.00'),
+(65, 'PBT-1100-204B', NULL, 'Polybutylene Terephthalate', NULL, 'BLACK,PBT-1100-204B', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '3', 0, '0.00'),
+(66, 'PBT2002', NULL, 'Polybutylene Terephthalate', NULL, 'NAATURAL,PBT 2002', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '3', 0, '0.00'),
+(67, 'PBT-GF-1006', NULL, 'Polybutylene Terephthalate', NULL, 'WHITE,PBT-GF-1006-Natural', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '3', 0, '0.00'),
+(68, 'POM(NW-02)', NULL, 'Polyoxymethylene Plastic Material', NULL, 'Natural, POM(NW-02)', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '3', 0, '0.00'),
+(69, 'PP57MNK10', NULL, 'Polypropylene Plastic Materials', NULL, 'NATURAL,PP57MNK10', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '3', 0, '0.00'),
+(70, 'PP8726RT-TH', NULL, 'Polypropylene Plastic Materials', NULL, 'ORANGE,PPB8726RT TH', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '3', 0, '0.00'),
+(71, 'PPBF970A1', NULL, 'Polypropylene Plastic Materials', NULL, 'Natural, PPBF970A1', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '3', 0, '0.00'),
+(72, 'PPBJ500', NULL, 'Polypropylene Plastic Materials', NULL, 'NATURAL,PPBJ500', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '3', 0, '0.00'),
+(73, 'PPBJ550', NULL, 'Polypropylene Plastic Materials', NULL, 'Natural, PPBJ550', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '3', 0, '0.00'),
+(74, 'PPC606W', NULL, 'Polypropylene Plastic Materials', NULL, 'BLACK,PPC606W', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '3', 0, '0.00'),
+(75, 'PPC616WT', NULL, 'Polypropylene Plastic Materials', NULL, 'Black,PPC616WT', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '3', 0, '0.00'),
+(76, 'PPJ715M', NULL, 'Polypropylene Plastic Material', NULL, 'NATURAL,PPJ715M', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '3', 0, '0.00'),
+(77, 'PPTC426BT', NULL, 'Polypropylene Plastic Materials', NULL, 'Black,PPTC426BT', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '3', 0, '0.00'),
+(78, 'PPTD10', NULL, 'Polypropylene Plastic Materials', NULL, 'Black,PP TD10(3510H-10000)', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '3', 0, '0.00'),
+(79, 'RM', NULL, 'Polypropylene Plastic Materials', NULL, 'Natural Color,PA66 1300S', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '3', 0, '0.00'),
+(80, 'ZYLPPBF970AI', NULL, 'Polypropylene Plastic Materials', NULL, 'Natural Color,PP', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '3', 0, '0.00'),
+(81, 'CM110', NULL, 'Master Batch', NULL, 'Black, Master Batch, cm110', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '4', 0, '0.00'),
+(82, 'ECOMA_A-FR41', NULL, 'Master Batch', NULL, 'Black, Master Batch, ECOMA A-FR41', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '4', 0, '0.00'),
+(83, 'ECOMA_A-FR46', NULL, 'Master Batch', NULL, 'Black, Master Batch, ECOMA A-FR46, Manufacturer : TEAMPLAST THAI CO.,LTD, Origin : Thailand', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '4', 0, '0.00'),
+(84, 'EP-1991-20A', NULL, 'Master Batch', NULL, 'Orange,Master Batch,EP-1991-20A', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '4', 0, '0.00'),
+(85, 'P1-1212-20', NULL, 'Master Batch', NULL, 'Black, Master Batch, P1-1212-20', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '4', 0, '0.00'),
+(86, 'PE4005', NULL, 'Master Batch', NULL, 'Black,Master Batch,PE 4005', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '4', 0, '0.00'),
+(87, 'PH-6728', NULL, 'Master Batch', NULL, 'Black, Master Batch, PH-6728', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '4', 0, '0.00'),
+(88, 'PH-6728BK', NULL, 'Master Batch', NULL, 'Black, Master Batch, PH-6728BK', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '4', 0, '0.00'),
+(89, 'PPM17N5998BK', NULL, 'Master Batch', NULL, 'Black, Master Batch, PPM17N5998', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '4', 0, '0.00'),
+(90, 'SMTY', NULL, 'Master Batch', NULL, 'Black, Master Batch, SMTY', '2', '2', NULL, '1', NULL, NULL, NULL, 0, '4', 0, '0.00'),
 (91, 'IAP7047-1215', NULL, 'Stud Clamp', NULL, '7047-1215', '3', '1', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
 (92, 'IAP7116-8190-02', NULL, 'Terminal', NULL, '7116-8190-02', '3', '1', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
 (93, 'IAP7117-5537-02', NULL, 'Busbar', NULL, '7117-5537-02', '3', '1', NULL, '1', NULL, NULL, NULL, 0, NULL, 0, '0.00'),
@@ -710,6 +709,52 @@ INSERT INTO `material` (`id`, `kode`, `kode_rm`, `nama`, `cust_nama`, `spesifika
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `mixing`
+--
+
+CREATE TABLE `mixing` (
+  `id` int(11) NOT NULL,
+  `kode` varchar(25) NOT NULL,
+  `material` varchar(11) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `satuan` varchar(11) DEFAULT NULL,
+  `status` varchar(1) DEFAULT NULL,
+  `use_status` varchar(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `mixing`
+--
+
+INSERT INTO `mixing` (`id`, `kode`, `material`, `qty`, `satuan`, `status`, `use_status`) VALUES
+(1, 'MMPA66103FHS', '567', 2, '2', '1', NULL),
+(2, 'MMPP57MNK10-1', '573', 31, '2', '1', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mixing_child`
+--
+
+CREATE TABLE `mixing_child` (
+  `id` int(11) NOT NULL,
+  `material` varchar(11) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `satuan` varchar(11) NOT NULL,
+  `transID` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `mixing_child`
+--
+
+INSERT INTO `mixing_child` (`id`, `material`, `qty`, `satuan`, `transID`) VALUES
+(3, '69', 30, '2', '2'),
+(4, '88', 1, '2', '2');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `project`
 --
 
@@ -792,6 +837,18 @@ ALTER TABLE `material`
   ADD PRIMARY KEY (`id`,`kode`);
 
 --
+-- Indexes for table `mixing`
+--
+ALTER TABLE `mixing`
+  ADD PRIMARY KEY (`id`,`kode`);
+
+--
+-- Indexes for table `mixing_child`
+--
+ALTER TABLE `mixing_child`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `project`
 --
 ALTER TABLE `project`
@@ -830,6 +887,18 @@ ALTER TABLE `customer`
 --
 ALTER TABLE `material`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=592;
+
+--
+-- AUTO_INCREMENT for table `mixing`
+--
+ALTER TABLE `mixing`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `mixing_child`
+--
+ALTER TABLE `mixing_child`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `project`

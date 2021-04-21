@@ -25,39 +25,95 @@
                             <div class="card">
                                 <div class="card-header">
                                     <a href="<?php echo base_url().'Bom'; ?>" class="btn btn-secondary"><i class="fas fa-arrow-alt-circle-left"></i> Kembali</a>
+                                    <a href="" class="btn btn-default"><i class="fas fa-edit"></i> Edit</a>
                                     <?php
                                         if($detail['status'] == '1')
                                         {
                                             ?>
-                                                <a href="" class="btn btn-primary"><i class="fas fa-check-circle"></i> Approve</a>
+                                                <a href="" class="btn btn-default"><i class="fas fa-check-circle"></i> Approve</a>
                                             <?php
                                         }
                                         if($detail['status'] == '2')
                                         {
                                             ?>
-                                                <a href="" class="btn btn-primary"><i class="fas fa-check-circle"></i> Use</a>
+                                                <a href="" class="btn btn-default"><i class="fas fa-check-circle"></i> Use</a>
                                             <?php
                                         }
                                         if($detail['use'] == '1')
                                         {
                                             ?>
-                                                <a href="" class="btn btn-primary"><i class="fas fa-times"></i> De-Approve</a>
+                                                <a href="" class="btn btn-default"><i class="fas fa-times"></i> De-Approve</a>
                                             <?php
                                         }
                                     ?>
-                                    <a href="" class="btn btn-success"><i class="fas fa-plus-circle"></i> Buat BOM Baru</a>
+                                    <a href="" class="btn btn-default"><i class="fas fa-plus-circle"></i> Buat BOM Baru</a>
                                     <a href="" class="btn btn-default"><i class="fas fa-copy"></i> Copy BOM</a>
                                     <?php
                                         if($detail['status'] == '1')
                                         {
                                             ?>
-                                                <a href="" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus BOM</a>
+                                                <a href="" class="btn btn-default"><i class="fas fa-trash"></i> Hapus BOM</a>
                                             <?php
                                         }
                                     ?>
                                 </div>
 
                                 <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Kode BOM</label>
+                                                <input type="text" name="kode" class="form-control" readonly value="<?php echo $detail['kode']; ?>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Part No</label>
+                                                <input type="text" name="part" class="form-control" readonly value="<?php echo $detail['kode_material'] ?>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Nama Part</label>
+                                                <input type="text" name="nama_material" class="form-control" readonly value="<?php echo $detail['nama_material'] ?>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Spesifikasi</label>
+                                                <input type="text" name="spesifikasi" class="form-control" readonly value="<?php echo $detail['spesifikasi'] ?>">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Berat Part</label>
+                                                <div class="row">
+                                                    <div class="col-8">
+                                                        <input type="text" name="berat" class="form-control" readonly value="<?php echo $detail['berat'] ?>">
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <input type="text" name="satuan" class="form-control" readonly value="Gram">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Qty Per Bag</label>
+                                                <div class="row">
+                                                    <div class="col-8">
+                                                        <input type="text" name="berat" class="form-control" readonly value="<?php echo $detail['qty2'] ?>">
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <input type="text" name="nama_satuan" class="form-control" readonly value="<?php echo $detail['nama_satuan'] ?>">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Qty</label>
+                                                <div class="row">
+                                                    <div class="col-8">
+                                                        <input type="text" name="berat" class="form-control" readonly value="<?php echo $detail['qty'] ?>">
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <input type="text" name="nama_satuan" class="form-control" readonly value="<?php echo $detail['nama_satuan'] ?>">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="card-footer">

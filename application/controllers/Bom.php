@@ -147,7 +147,9 @@
                     $satuan         = $row->satuan;
                     $nama_satuan    = $row->nama_satuan;
                     $status         = $row->status;
-                    $use       = $row->use_status;
+                    $use            = $row->use_status;
+                    $kode_material  = $row->kode_material;
+                    $spesifikasi     = $row->spesifikasi;
                 }
 
                 $data['detail'] = array(
@@ -161,7 +163,9 @@
                     'satuan'        => $satuan,
                     'nama_satuan'   => $nama_satuan,
                     'status'        => $status,
-                    'use'           => $use
+                    'use'           => $use,
+                    'kode_material' => $kode_material,
+                    'spesifikasi'   => $spesifikasi
                 );
 
                 $data['judul'] = 'Detail Master Bill of Materials';
