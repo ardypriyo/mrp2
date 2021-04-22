@@ -12,10 +12,11 @@
         function index()
         {
             $data['judul'] = 'Mixing';
+            $data['data'] = $this->M_master->daftarMixing();
             $this->load->view('include/header', $data);
-            $this->load->view('include/sidebar', $data);
+            $this->load->view('include/sidebar');
             $this->load->view('Mixing/index', $data);
-            $this->load->view('include/footer', $data);
+            $this->load->view('include/footer');
         }
 
         function add()
@@ -23,9 +24,9 @@
             $data['judul'] = 'Tambah Mixing';
             $data['mix'] = $this->M_master->loadMixing();
             $this->load->view('include/header', $data);
-            $this->load->view('include/sidebar', $data);
+            $this->load->view('include/sidebar');
             $this->load->view('Mixing/add', $data);
-            $this->load->view('include/footer', $data);
+            $this->load->view('include/footer');
         }
 
         function getData()
@@ -46,7 +47,8 @@
                     $satuan = $row->satuan;
                     $virgin = $row->virgin;
                     $mb = $row->mb;
-                    $total = $virgin + $mb;
+                    $regrind = $row->regrind;
+                    $total = $virgin + $mb + $regrind;
                 }
 
                 $get = $this->M_master->cekID('satuan', $satuan);
@@ -98,7 +100,8 @@
             $spesifikasi = $this->input->post('spesifikasi');
             $qty = $this->input->post('qty');
             $satuan = $this->input->post('satuan');
-            $status = '1';
+            $status = '0';
+            $use_status = '0';
             $kode_material = $this->input->post('kode_material');
 
             $result = $this->M_master->cekMixing($material);
@@ -110,17 +113,18 @@
             else
             {
                 $data = array(
-                    'kode'      => $kode_material,
-                    'material'  => $material,
-                    'qty'       => $qty,
-                    'satuan'    => $satuan,
-                    'status'    => $status
+                    'kode'          => $kode_material,
+                    'material'      => $material,
+                    'qty'           => $qty,
+                    'satuan'        => $satuan,
+                    'status'        => $status,
+                    'use_status'    => $use_status
                 );
 
                 $insert = $this->M_crud->insert('mixing', $data);
                 if($insert)
                 {
-                    $cekKode = $this->M_master->cekKode('mixing', $this->input->post('kode_material'));
+                    $cekKode = $this->M_master->cekKodeMixing($this->input->post('kode_material'));
                     if(count($cekKode) > 0)
                     {
                         foreach($cekKode as $c)
@@ -161,6 +165,7 @@
                     $use_status     = $r->use_status;
                     $virgin         = $r->virgin;
                     $mb             = $r->mb;
+                    $regrind        = $r->regrind;
                 }
 
                 $data['detail'] = array(
@@ -175,7 +180,8 @@
                     'status'        => $status,
                     'use_status'    => $use_status,
                     'virgin'        => $virgin,
-                    'mb'            => $mb
+                    'mb'            => $mb,
+                    'regrind'       => $regrind
                 );
 
                 $data['judul'] = 'Detail Mixing';
@@ -200,6 +206,7 @@
             $id_mixing = $this->input->post('id_mixing');
             $virgin = $this->input->post('virgin');
             $mb = $this->input->post('mb');
+            $regrind = $this->input->post('regrind');
             $total = $this->input->post('total');
 
             $result = $this->M_master->cekID('material', $material);
@@ -218,6 +225,10 @@
                 elseif($tipe == '4')
                 {
                     $qty = $mb;
+                }
+                elseif($tipe == '6')
+                {
+                    $qty = $regrind;
                 }
 
                 $data = array(

@@ -86,7 +86,6 @@
             $this->db->from('material');
             $this->db->where('tipe_material', '2');
             $this->db->where('other', '5');
-            $this->db->where('status', '1');
             $this->db->order_by('kode', 'ASC');
 
             return $this->db->get()->result();
@@ -94,7 +93,7 @@
 
         function getMixing($id)
         {
-            $this->db->select('mixing.*, material.kode as kode_material, material.nama as nama_material, material.spesifikasi, satuan.nama as nama_satuan, material.virgin, material.mb');
+            $this->db->select('mixing.*, material.kode as kode_material, material.nama as nama_material, material.spesifikasi, satuan.nama as nama_satuan, material.virgin, material.mb, material.regrind');
             $this->db->from('mixing');
             $this->db->join('material', 'mixing.material = material.id', 'LEFT');
             $this->db->join('satuan', 'mixing.satuan = satuan.id', 'LEFT');
@@ -111,6 +110,7 @@
 
             return $this->db->get()->result();
         }
+
         function loadRM()
         {
             $this->db->select('*');
@@ -118,12 +118,12 @@
             $this->db->where('tipe_material', '2');
             $this->db->where('other', '3');
             $this->db->or_where('other', '4');
+            $this->db->or_where('other', '6');
             $this->db->where('status', '1');
             $this->db->order_by('kode', 'ASC');
 
             return $this->db->get()->result();
         }
-
 
         function loadMixingChild($id)
         {
@@ -132,6 +132,26 @@
             $this->db->join('material', 'mixing_child.material = material.id', 'LEFT');
             $this->db->join('satuan', 'mixing_child.satuan = satuan.id', 'LEFT');
             $this->db->where('mixing_child.transID', $id);
+
+            return $this->db->get()->result();
+        }
+
+        function daftarMixing()
+        {
+            $this->db->select('mixing.*, material.kode as kode_material, material.nama as nama_material, material.spesifikasi, satuan.nama as nama_satuan');
+            $this->db->from('mixing');
+            $this->db->join('material', 'mixing.material = material.id', 'LEFT');
+            $this->db->join('satuan', 'mixing.satuan = satuan.id', 'LEFT');
+            $this->db->order_by('mixing.kode', 'ASC');
+
+            return $this->db->get()->result();
+        }
+
+        function cekKodeMixing($kode)
+        {
+            $this->db->select('*');
+            $this->db->from('mixing');
+            $this->db->where('kode', $kode);
 
             return $this->db->get()->result();
         }

@@ -38,6 +38,7 @@
             $qty2 = $this->input->post('qty2');
             $virgin = $this->input->post('virgin');
             $mb = $this->input->post('mb');
+            $regrind = $this->input->post('regrind');
 
             $result = $this->M_master->cekKode('material', $kode);
             //echo $kode;
@@ -62,7 +63,8 @@
                     'status'        => '1',
                     'qtyBag'        => $qty2,
                     'virgin'        => $virgin,
-                    'mb'            => $mb
+                    'mb'            => $mb,
+                    'regrind'       => $regrind
                 );
 
                 $insert = $this->M_crud->insert('material', $data);
@@ -98,6 +100,7 @@
                     $qtyBag         = $row->qtyBag;
                     $virgin         = $row->virgin;
                     $mb             = $row->mb;
+                    $regrind        = $row->regrind;
                 }
 
                 $data['edit'] = array(
@@ -114,7 +117,8 @@
                     'other'         => $other,
                     'qty2'          => $qtyBag,
                     'virgin'        => $virgin,
-                    'mb'            => $mb
+                    'mb'            => $mb,
+                    'regrind'       => $regrind
                 );
 
                 $data['judul'] = 'Master Material';
@@ -148,6 +152,10 @@
             $other = $this->input->post('other');
             $berat = $this->input->post('berat');
             $qty = $this->input->post('qty');
+            $virgin = $this->input->post('virgin');
+            $mb = $this->input->post('mb');
+            $regrind = $this->input->post('regrind');
+
 
             $data = array(
                 'kode'          => $kode,
@@ -160,7 +168,10 @@
                 'berat'         => $berat,
                 'qty'           => $qty,
                 'other'         => $other,
-                'status'        => '1'
+                'status'        => '1',
+                'virgin'        => $virgin,
+                'mb'            => $mb,
+                'regrind'       => $regrind
             );
 
             $where = array('id' => $id);

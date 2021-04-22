@@ -36,8 +36,49 @@
                                                 <th>Spesifikasi</th>
                                                 <th>Qty</th>
                                                 <th>Satuan</th>
+                                                <th>Status</th>
                                                 <th>#</th>
                                             </thead>
+                                            <tbody>
+                                                <?php
+                                                    $no = 1;
+                                                    foreach($data as $row)
+                                                    {
+                                                        ?>
+                                                            <tr>
+                                                                <td><?php echo $no++; ?></td>
+                                                                <td><?php echo $row->kode_material; ?></td>
+                                                                <td><?php echo $row->nama_material; ?></td>
+                                                                <td><?php echo $row->spesifikasi; ?></td>
+                                                                <td><?php echo $row->qty; ?></td>
+                                                                <td><?php echo $row->nama_satuan; ?></td>
+                                                                <td>
+                                                                    <?php
+                                                                        if($row->status == '0' AND $row->use_status == '0')
+                                                                        {
+                                                                            echo "Unapprove";
+                                                                        }
+                                                                        elseif($row->status == '1' AND $row->use_status == '0')
+                                                                        {
+                                                                            echo "Approve";
+                                                                        }
+                                                                        elseif($row->status == '1' AND $row->use_status == '1')
+                                                                        {
+                                                                            echo "Use";
+                                                                        }
+                                                                    ?>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="btn-group">
+                                                                        <a href="<?php echo base_url().'Mixing/detail/'.$row->id; ?>" class="btn btn-xs btn-warning"><i class="fas fa-eye"></i></a>
+                                                                        <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#hapusMixing" data-id="<?php echo $row->id; ?>"><i class="fas fa-trash"></i></button>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        <?php
+                                                    }
+                                                ?>
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>

@@ -1,5 +1,5 @@
 <div class="modal fade" id="tambahDetail" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
             <form method="POST" action="<?php echo base_url().'Mixing/insertDetail'; ?>">
                 <div class="modal-header">
@@ -34,6 +34,7 @@
                     <!-- <div class="form-group"> -->
                         <!-- <label class="control-label">Master Batch</label> -->
                         <input type="hidden" name="mb" class="form-control" readonly value="<?php echo $detail['mb'] ?>">
+                        <input type="hidden" name="regrind" class="form-control" readonly value="<?php echo $detail['regrind'] ?>">
                     <!-- </div> -->
                     <!-- <div class="form-group"> -->
                         <!-- <label class="control-label">Total</label> -->

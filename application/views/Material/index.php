@@ -114,6 +114,7 @@
                                                 <option value="3">Virgin</option>
                                                 <option value="4">Master Batch</option>
                                                 <option value="5">Mixing</option>
+                                                <option value="6">Regrind</option>
                                             </select>
                                         </div>
                                         <div class="form-group" id="virgin">
@@ -123,6 +124,10 @@
                                         <div class="form-group" id="mb">
                                             <label class="control-label">Master Batch</label>
                                             <input type="text" name="mb" class="form-control" maxlength="11">
+                                        </div>
+                                        <div class="form-group" id="regrind">
+                                            <label class="control-label">Regrind</label>
+                                            <input type="text" name="regrind" class="form-control" maxlength="11">
                                         </div>
                                     </div>
 
@@ -229,6 +234,7 @@
             $('document').ready(function(){
                 $('#virgin').hide();
                 $('#mb').hide();
+                $('#regrind').hide();
 
                 $('#properties').change(function(){
                     var kode = $(this).val();
@@ -237,11 +243,12 @@
                     {
                         $('#virgin').show();
                         $('#mb').show();
+                        $('#regrind').show();
                     }
                     else
                     {
                         $('#virgin').hide();
-                        $('#mb').hide();
+                        $('#regrind').hide();
                     }
                 });
             });

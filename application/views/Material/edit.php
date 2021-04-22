@@ -111,9 +111,10 @@
                                                 <option value="">Other</option>
                                                 <option value="1" <?php if($edit['other'] == '1') { ?> selected <?php } ?>>Domestik</option>
                                                 <option value="2" <?php if($edit['other'] == '2') { ?> selected <?php } ?>>Esport</option>
-                                                <option value="3" <?php if($edit['other'] == '2') { ?> selected <?php } ?>>Virgin</option>
-                                                <option value="4" <?php if($edit['other'] == '2') { ?> selected <?php } ?>>Master Batch</option>
-                                                <option value="5" <?php if($edit['other'] == '2') { ?> selected <?php } ?>>Mixing</option>
+                                                <option value="3" <?php if($edit['other'] == '3') { ?> selected <?php } ?>>Virgin</option>
+                                                <option value="4" <?php if($edit['other'] == '4') { ?> selected <?php } ?>>Master Batch</option>
+                                                <option value="5" <?php if($edit['other'] == '5') { ?> selected <?php } ?>>Mixing</option>
+                                                <option value="5" <?php if($edit['other'] == '6') { ?> selected <?php } ?>>Regrind</option>
                                             </select>
                                         </div>
                                         <?php
@@ -132,6 +133,15 @@
                                                     <div class="form-group" id="mb">
                                                         <label class="control-label">Master Batch</label>
                                                         <input type="text" name="mb" class="form-control" maxlength="11" value="<?php echo $edit['mb'] ?>">
+                                                    </div>
+                                                <?php
+                                            }
+                                            if($edit['other'] === '5')
+                                            {
+                                                ?>
+                                                    <div class="form-group" id="regrind">
+                                                        <label class="control-label">Regrind</label>
+                                                        <input type="text" name="regrind" class="form-control" maxlength="11" value="<?php echo $edit['regrind'] ?>">
                                                     </div>
                                                 <?php
                                             }
@@ -250,11 +260,13 @@
                     {
                         $('#virgin').show();
                         $('#mb').show();
+                        $('#regrind').show();
                     }
                     else
                     {
                         $('#virgin').hide();
                         $('#mb').hide();
+                        $('#regrind').hide();
                     }
                 });
             });

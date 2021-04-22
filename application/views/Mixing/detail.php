@@ -26,22 +26,28 @@
                                 <form method="POST" action="<?php echo base_url().'Mixing/insertParent'; ?>">
                                     <div class="card-header">
                                         <a href="<?php echo base_url().'Mixing' ?>" class="btn btn-secondary"><i class="fas fa-arrow-alt-circle-left"></i> Kembali</a>
-                                        <?php 
-                                            if($detail['status'] == '1')
+                                        <a href="" data-toggle="modal" data-target="#editMixing" data-id="<?php echo $detail['id'] ?>" class="btn btn-default"><i class="fas fa-edit"></i> Edit</a>
+                                        <?php
+                                            if($detail['status'] == '0' AND $detail['use_status'] == '0')
                                             {
                                                 ?>
-                                                    <a href="" data-toggle="modal" data-target="#editMixing" data-id="<?php echo $detail['id']; ?>" class="btn btn-default"><i class="fas fa-edit"></i> Edit Data</a>
+                                                    <a href="" data-toggle="modal" data-target="#approve" class="btn btn-default"><i class="fas fa-check"></i> Approve</a>
                                                 <?php
                                             }
-
-                                            if($detail['status'] == '1')
+                                            elseif($detail['status'] == '1' AND $detail['use_status'] == '0')
                                             {
                                                 ?>
-                                                    <a href="" class="btn btn-default"><i class="fas fa-check"></i> Approve</a>
+                                                    <a href="" data-toggle="modal" data-target="#use" class="btn btn-default"><i class="fas fa-chek"></i> Use</a>
+                                                <?php
+                                            }
+                                            elseif($detail['status'] == '1' AND $detail['use_status'] == '1')
+                                            {
+                                                ?>
+                                                    <a href="" data-toggle="modal" data-target="#deApprove" class="btn btn-default"><i class="fas fa-times"></i> De-Approvev</a>
                                                 <?php
                                             }
                                         ?>
-
+                                        <a href="" data-toggle="modal" data-target="#tambahBOM" class="btn btn-default"><i class="fas fa-plus-circle"></i> Tambah BOM</a>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
