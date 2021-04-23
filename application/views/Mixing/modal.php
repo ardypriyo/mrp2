@@ -11,7 +11,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label class="control-label">Kode Material</label>
-                        <select name="material" class="form-control select2bs4" id="material_detail" required>
+                        <select name="material" class="form-control select2bs4" id="" required>
                             <option value="">Pilih Material</option>
                             <?php
                                 foreach($material as $row)
@@ -194,6 +194,91 @@
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="tambahMixing" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="dialog">
+        <div class="modal-content">
+            <form method="POST" action="<?php echo base_url().'Mixing/insertParent'; ?>">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Mixing Data</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label class="control-label">Material Mixing</label>
+                                <select name="kode" class="form-control select2bs4" id="mixing" required>
+                                    <option value="">Pilih Material</option>
+                                    <?php
+                                        foreach($mix as $m)
+                                        {
+                                            ?>
+                                                <option value="<?php echo $m->id; ?>"><?php echo $m->kode; ?></option>
+                                            <?php
+                                        }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="'control-label">Nama Material</label>
+                                <input type="text" name="nama" class="form-control" readonly id="add_nama">
+                            </div>
+                            <div class="form-group">
+                                <label class="'control-label">Spesifikasi</label>
+                                <input type="text" name="spesifikasi" class="form-control" readonly id="add_spesifikasi">
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label class="'control-label">Qty</label>
+                                <input type="text" name="qty" readonly class="form-control" required id="add_total">
+                            </div>
+                            <div class="form-group">
+                                <label class="'control-label">Satuan</label>
+                                <input type="text" name="nama_satuan" class="form-control" readonly id="add_nama_satuan">
+                            </div>
+                            <!-- <div class="form-group"> -->
+                                <!-- <label class="'control-label">Satuan</label> -->
+                                    <input type="hidden" name="satuan" class="form-control" readonly id="add_satuan">
+                                    <input type="hidden" name="kode_material" class="form-control" readonly id="add_kode_material">
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="hapusMixing" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="dialog">
+        <div class="modal-content">
+            <form method="POST" action="<?php echo base_url().'Mixing/deleteData' ?>">
+                <div class="modal-header">
+                    <h5 class="modal-title">Konfirmasi</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger">Hapus</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </form>

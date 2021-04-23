@@ -27,27 +27,7 @@
                                     <div class="card-header">
                                         <a href="<?php echo base_url().'Mixing' ?>" class="btn btn-secondary"><i class="fas fa-arrow-alt-circle-left"></i> Kembali</a>
                                         <a href="" data-toggle="modal" data-target="#editMixing" data-id="<?php echo $detail['id'] ?>" class="btn btn-default"><i class="fas fa-edit"></i> Edit</a>
-                                        <?php
-                                            if($detail['status'] == '0' AND $detail['use_status'] == '0')
-                                            {
-                                                ?>
-                                                    <a href="" data-toggle="modal" data-target="#approve" class="btn btn-default"><i class="fas fa-check"></i> Approve</a>
-                                                <?php
-                                            }
-                                            elseif($detail['status'] == '1' AND $detail['use_status'] == '0')
-                                            {
-                                                ?>
-                                                    <a href="" data-toggle="modal" data-target="#use" class="btn btn-default"><i class="fas fa-chek"></i> Use</a>
-                                                <?php
-                                            }
-                                            elseif($detail['status'] == '1' AND $detail['use_status'] == '1')
-                                            {
-                                                ?>
-                                                    <a href="" data-toggle="modal" data-target="#deApprove" class="btn btn-default"><i class="fas fa-times"></i> De-Approvev</a>
-                                                <?php
-                                            }
-                                        ?>
-                                        <a href="" data-toggle="modal" data-target="#tambahBOM" class="btn btn-default"><i class="fas fa-plus-circle"></i> Tambah BOM</a>
+                                        <a href="" data-toggle="modal" data-target="#tambahMixing" class="btn btn-default"><i class="fas fa-plus-circle"></i> Tambah BOM</a>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
@@ -170,6 +150,32 @@
                             $('#nama_satuan').val(data.nama_satuan);
                             $('#total').val(data.total);
                             $('#kode_material').val(data.kode_material);
+                        },
+                            error: function (xhr, ajaxOptions, thrownError) {
+                            alert(thrownError);
+                        }
+                    });
+                });
+            });
+
+            $('#tambahMixing').on('show.bs.modal', function(e){
+                $('#mixing').change(function(){
+                    var kode = $(this).val();
+
+                    
+                    $.ajax({
+                        method : 'POST',
+                        url : '<?php echo base_url().'Mixing/getData'; ?>',
+                        data : {kode:kode},
+                        async : true,
+                        dataType : 'json',
+                        success: function(data){
+                            $('#add_nama').val(data.nama);
+                            $('#add_spesifikasi').val(data.spesifikasi);
+                            $('#add_satuan').val(data.satuan);
+                            $('#add_nama_satuan').val(data.nama_satuan);
+                            $('#add_total').val(data.total);
+                            $('#add_kode_material').val(data.kode_material);
                         },
                             error: function (xhr, ajaxOptions, thrownError) {
                             alert(thrownError);

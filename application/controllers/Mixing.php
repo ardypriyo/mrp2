@@ -13,6 +13,22 @@
         {
             $data['judul'] = 'Mixing';
             $data['data'] = $this->M_master->daftarMixing();
+            $data['detail'] = array(
+                'id'            => '',
+                'kode'          => '',
+                'kode_material' => '',
+                'nama_material' => '',
+                'spesifikasi'   => '',
+                'qty'           => '',
+                'satuan'        => '',
+                'nama_satuan'   => '',
+                'status'        => '',
+                'use_status'    => '',
+                'virgin'        => '',
+                'mb'            => '',
+                'regrind'       => ''
+            );
+
             $this->load->view('include/header', $data);
             $this->load->view('include/sidebar');
             $this->load->view('Mixing/index', $data);
