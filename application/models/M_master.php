@@ -155,4 +155,36 @@
 
             return $this->db->get()->result();
         }
+
+        function loadMaterial()
+        {
+            $tipe = array('2','3','4');
+
+            $this->db->select('*');
+            $this->db->from('material');
+            $this->db->where_in('tipe_material', $tipe);
+            $this->db->order_by('kode', 'ASC');
+
+            return $this->db->get()->result();
+        }
+
+        function cekDetailMixing($id)
+        {
+            $this->db->select('*');
+            $this->db->from('mixing_child');
+            $this->db->where('transID', $id);
+
+            return $this->db->get()->result();
+        }
+
+        function loadDetailBom($id)
+        {
+            $this->db->select('bom_child.*, material.kode as kode_material, material.nama as nama_material, material.spesifikasi, satuan.nama as nama_satuan');
+            $this->db->from('bom_child');
+            $this->db->join('material', 'bom_child.material = material.id', 'LEFT');
+            $this->db->join('satuan', 'bom_child.satuan = satuan.id', 'LEFT');
+            $this->db->where('bom_child.bom_id', $id);
+
+            return $this->db->get()->result();
+        }
     }

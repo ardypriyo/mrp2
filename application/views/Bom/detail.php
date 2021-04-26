@@ -26,36 +26,7 @@
                                 <div class="card-header">
                                     <a href="<?php echo base_url().'Bom'; ?>" class="btn btn-secondary"><i class="fas fa-arrow-alt-circle-left"></i> Kembali</a>
                                     <a href="" class="btn btn-default"><i class="fas fa-edit"></i> Edit</a>
-                                    <?php
-                                        if($detail['status'] == '1')
-                                        {
-                                            ?>
-                                                <a href="" class="btn btn-default"><i class="fas fa-check-circle"></i> Approve</a>
-                                            <?php
-                                        }
-                                        if($detail['status'] == '2')
-                                        {
-                                            ?>
-                                                <a href="" class="btn btn-default"><i class="fas fa-check-circle"></i> Use</a>
-                                            <?php
-                                        }
-                                        if($detail['use'] == '1')
-                                        {
-                                            ?>
-                                                <a href="" class="btn btn-default"><i class="fas fa-times"></i> De-Approve</a>
-                                            <?php
-                                        }
-                                    ?>
-                                    <a href="" class="btn btn-default"><i class="fas fa-plus-circle"></i> Buat BOM Baru</a>
-                                    <a href="" class="btn btn-default"><i class="fas fa-copy"></i> Copy BOM</a>
-                                    <?php
-                                        if($detail['status'] == '1')
-                                        {
-                                            ?>
-                                                <a href="" class="btn btn-default"><i class="fas fa-trash"></i> Hapus BOM</a>
-                                            <?php
-                                        }
-                                    ?>
+                                    <a href="" class="btn btn-default" data-toggle="modal" data-target="#tambahBOM"><i class="fas fa-plus-circle"></i> Buat BOM Baru</a>
                                 </div>
 
                                 <div class="card-body">
@@ -136,8 +107,33 @@
                                                 <th>Nama Material</th>
                                                 <th>Spesifikasi</th>
                                                 <th>Usage</th>
-                                                <th>#</th>
+                                                <th>Satuan</th>
+                                                <!-- <th>#</th> -->
                                             </thead>
+                                            <tbody>
+                                                <?php
+                                                    $no = 1;
+                                                    foreach($listDetail as $row)
+                                                    {
+                                                        ?>
+                                                            <tr>
+                                                                <td><?php echo $no++; ?></td>
+                                                                <td><?php echo $row->kode_material; ?></td>
+                                                                <td><?php echo $row->nama_material; ?></td>
+                                                                <td><?php echo $row->spesifikasi; ?></td>
+                                                                <td><?php echo $row->qty_usage; ?></td>
+                                                                <td><?php echo $row->nama_satuan; ?></td>
+                                                                <!-- <td>
+                                                                    <div class="btn-group">
+                                                                        <a href="" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#editDetail" data-id="<?php echo $row->id; ?>"><i class="fas fa-edit"></i></a>
+                                                                        <a href="" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#hapusDetail" data-id="<?php echo $row->id; ?>"><i class="fas fa-trash"></i></a>
+                                                                    </div>
+                                                                </td> -->
+                                                            </tr>
+                                                        <?php
+                                                    }
+                                                ?>
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -150,3 +146,44 @@
                 </div>
             </div>
         </div>
+        <?php
+            $this->load->view('Bom/modal');
+        ?>
+
+        <script>
+            $('#editDetail').on('show.bs.modal', function(e){
+                var data = $(e.relatedTarget).data('id');
+                var modal = $(this);
+
+                modal.find('#id_detail').attr("value", data);
+            });
+        </script>
+        <script>
+            $('#tambahBOM').on('show.bs.modal', function(e){
+                $('#kode').change(function(){
+                    var kode = $(this).val();
+
+                    $.ajax({
+                        method : 'POST',
+                        url : '<?php echo base_url().'Bom/getMasterData'; ?>',
+                        data : {kode:kode},
+                        async : true,
+                        dataType : 'json',
+                        success: function(data){
+                            $('#nama').val(data.nama);
+                            $('#spesifikasi').val(data.spesifikasi);
+                            $('#berat').val(data.berat);
+                            $('#qty').val(data.qty);
+                            $('#qty2').val(data.qty2);
+                            $('#satuan').val(data.satuan);
+                            $('#satuan1').val(data.nama_satuan);
+                            $('#satuan2').val(data.satuan2);
+                            $('#nama_satuan').val(data.nama_satuan);
+                        },
+                            error: function (xhr, ajaxOptions, thrownError) {
+                            alert(thrownError);
+                        }
+                    });
+                });
+            });
+        </script>

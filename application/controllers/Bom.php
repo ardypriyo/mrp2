@@ -170,6 +170,8 @@
 
                 $data['judul'] = 'Detail Master Bill of Materials';
                 $data['part'] = $this->M_master->loadMaster('material', '1');
+                $data['material'] = $this->M_master->loadMaterial();
+                $data['listDetail'] = $this->M_master->loadDetailBom($id);
                 $this->load->view('include/header', $data);
                 $this->load->view('include/sidebar');
                 $this->load->view('Bom/detail', $data);
@@ -179,6 +181,153 @@
             {
                 $this->session->set_flashdata('error', 'Data Tidak Ditemukan');
                 redirect('Bom', 'refresh');
+            }
+        }
+
+        function insertDetail()
+        {
+            $material = $this->input->post('material');
+            $berat = $this->input->post('berat');
+            $qtyBom = $this->input->post('qty_bom');
+            $qtyDetail = $this->input->post('qty_detail');
+            $id_bom = $this->input->post('id_bom');
+
+            $qtyUsage = ($berat * $qtyBom) / 1000;
+
+            //cek ke table material
+            $cekMaterial = $this->M_master->cekID('material', $material);
+            if(count($cekMaterial) > 0)
+            {
+                foreach($cekMaterial as $cm)
+                {
+                    $tipe = $cm->tipe_material;
+                    $properties = $cm->other;
+                    $satuan = $cm->satuan;
+                }
+
+                if($tipe == '2')
+                {
+                    if($properties == '5')
+                    {
+                        $cekMixing = $this->M_master->cekMixing($material);
+                        if(count($cekMixing) > 0)
+                        {
+                            foreach($cekMixing as $a)
+                            {
+                                $idMixing = $a->id;
+                                $qtyHeader = $a->qty;
+                            }
+
+                            $cekDetailMixing = $this->M_master->cekDetailMixing($idMixing);
+                            foreach($cekDetailMixing as $b)
+                            {
+                                $qtyMixing = $b->qty / $qtyHeader;
+
+                                $result = $qtyMixing * $qtyUsage;
+                                //echo $result;
+                                $data = array(
+                                    'bom_id' => $id_bom,
+                                    'material' => $b->material,
+                                    'qty_usage' => $result,
+                                    'satuan' => $b->satuan 
+                                );
+
+                                $insert = $this->M_crud->insert('bom_child', $data);
+                            }
+                            if($insert)
+                            {
+                                redirect('Bom/detail/'.$id_bom, 'refresh');
+                            }
+                            else
+                            {
+                                $this->session->set_flashdata('error', 'Gagal Menambahan Detail Data');
+                                redirect('Bom/detail/'.$id_bom, 'refresh');
+                            }
+                        }
+                        else
+                        {
+                            redirect('Bom/detail/'.$id_bom, 'refresh');
+                        }
+                    }
+                    else
+                    {
+                        $data = array(
+                            'bom_id' => $id_bom,
+                            'material' => $material,
+                            'qty_usage' => $qtyUsage,
+                            'satuan' => $satuan 
+                        );
+
+                        $insert = $this->M_crud->insert('bom_child', $data);
+                        if($insert)
+                        {
+                            redirect('Bom/detail/'.$id_bom,'refresh');
+                        }
+                        else
+                        {
+                            $this->session->set_flashdata('error', 'Gagal Menambahan Detail Data');
+                            redirect('Bom/detail/'.$id_bom, 'refresh');
+                        }
+                    }
+                }
+                elseif($tipe == '3')
+                {
+                    // echo $this->input->post('material');
+                    $result = $this->M_master->cekID('material', $this->input->post('material'));
+                    if(count($result) > 0)
+                    {
+                        foreach($result as $r)
+                        {
+                            $satuan = $r->satuan;
+                        }
+                    }
+                    $data = array(
+                        'bom_id' => $id_bom,
+                        'material' => $material,
+                        'qty_usage' => $qtyDetail,
+                        'satuan' => $satuan,
+                    );
+
+                    $insert = $this->M_crud->insert('bom_child', $data);
+                    if($insert)
+                    {
+                        redirect('Bom/detail/'.$id_bom, 'refresh');
+                    }
+                    else
+                    {
+                        $this->session->set_flashdata('error', 'Gagal Menambahan Detail Data');
+                        redirect('Bom/detail/'.$id_bom, 'refresh');
+                    }
+                }
+                elseif($tipe == '4')
+                {
+                    // echo $this->input->post('material');
+                    $result = $this->M_master->cekID('material', $this->input->post('material'));
+                    if(count($result) > 0)
+                    {
+                        foreach($result as $r)
+                        {
+                            $satuan = $r->satuan;
+                        }
+                    }
+                    $data = array(
+                        'bom_id' => $id_bom,
+                        'material' => $material,
+                        'qty_usage' => $qtyDetail,
+                        'satuan' => $satuan,
+                    );
+
+                    $insert = $this->M_crud->insert('bom_child', $data);
+                    if($insert)
+                    {
+                        redirect('Bom/detail/'.$id_bom, 'refresh');
+                    }
+                    else
+                    {
+                        $this->session->set_flashdata('error', 'Gagal Menambahan Detail Data');
+                        redirect('Bom/detail/'.$id_bom, 'refresh');
+                    }
+                }
             }
         }
     }
