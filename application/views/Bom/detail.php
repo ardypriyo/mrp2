@@ -108,7 +108,7 @@
                                                 <th>Spesifikasi</th>
                                                 <th>Usage</th>
                                                 <th>Satuan</th>
-                                                <!-- <th>#</th> -->
+                                                <th>#</th>
                                             </thead>
                                             <tbody>
                                                 <?php
@@ -123,12 +123,12 @@
                                                                 <td><?php echo $row->spesifikasi; ?></td>
                                                                 <td><?php echo $row->qty_usage; ?></td>
                                                                 <td><?php echo $row->nama_satuan; ?></td>
-                                                                <!-- <td>
+                                                                <td>
                                                                     <div class="btn-group">
                                                                         <a href="" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#editDetail" data-id="<?php echo $row->id; ?>"><i class="fas fa-edit"></i></a>
                                                                         <a href="" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#hapusDetail" data-id="<?php echo $row->id; ?>"><i class="fas fa-trash"></i></a>
                                                                     </div>
-                                                                </td> -->
+                                                                </td>
                                                             </tr>
                                                         <?php
                                                     }

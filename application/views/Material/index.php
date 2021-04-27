@@ -110,7 +110,7 @@
                                             <select name="other" class="form-control select2bs4" style="width: 100%;" id="properties">
                                                 <option value="">Other</option>
                                                 <option value="1">Domestik</option>
-                                                <option value="2">Esport</option>
+                                                <option value="2">Eksport</option>
                                                 <option value="3">Virgin</option>
                                                 <option value="4">Master Batch</option>
                                                 <option value="5">Mixing</option>

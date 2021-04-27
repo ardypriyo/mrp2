@@ -29,17 +29,41 @@
 
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table table-striped table-hover table-bordered" id="data1">
+                                        <table class="table table-striped table-hover table-bordered" id="example1">
                                             <thead>
                                                 <th>No.</th>
+                                                <th>Kode BoM</th>
                                                 <th>Part No.</th>
                                                 <th>Part Name</th>
                                                 <th>Spesification</th>
                                                 <th>Qty</th>
-                                                <th>Status</th>
+                                                <th>UoM</th>
+                                                <th>#</th>
                                             </thead>
                                             <tbody>
-                                                
+                                                <?php
+                                                    $no = 1;
+                                                    foreach($data as $row)
+                                                    {
+                                                        ?>
+                                                            <tr>
+                                                                <td><?php echo $no++; ?></td>
+                                                                <td><?php echo $row->kode; ?></td>
+                                                                <td><?php echo $row->kode_material; ?></td>
+                                                                <td><?php echo $row->nama_material; ?></td>
+                                                                <td><?php echo $row->spesifikasi; ?></td>
+                                                                <td><?php echo $row->qty; ?></td>
+                                                                <td><?php echo $row->nama_satuan; ?></td>
+                                                                <td>
+                                                                    <div class="btn-group">
+                                                                        <a href="<?php echo base_url().'Bom/detail/'.$row->id; ?>" class="btn btn-warning btn-xs"><i class="fas fa-eye"></i></a>
+                                                                        <a href="" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        <?php
+                                                    }
+                                                ?>
                                             </tbody>
                                         </table>
                                     </div>

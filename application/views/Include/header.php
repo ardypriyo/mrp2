@@ -23,9 +23,21 @@
     <!-- BS Stepper -->
     <link rel="stylesheet" href="<?php echo base_url().'assets/plugins/bs-stepper/css/bs-stepper.min.css'; ?>">
     <!-- dropzonejs -->
-    <link rel="stylesheet" href="<?php echo base_url().'assets/plugins/dropzone/min/dropzone.min.css'; ?>">    
+    <link rel="stylesheet" href="<?php echo base_url().'assets/plugins/dropzone/min/dropzone.min.css'; ?>">  
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">  
     <script src="<?php echo base_url().'assets/plugins/jquery/jquery.min.js'; ?>"></script>
-    <script src="<?php echo base_url().'assets/plugins/jquery-ui/jquery-ui.min.js'; ?>"></script>
+    <script src="<?php echo base_url().'assets/plugins/jquery-ui/jquery-ui.js'; ?>"></script>
+    <script src="<?php echo base_url().'assets/plugins/jquery-ui/jquery-ui.css'; ?>"></script>
+    <script src="<?php echo base_url().'assets/plugins/jquery-ui/jquery-ui.theme.min.css'; ?>"></script>
+    <script>
+        $(function(){
+            $(".datepicker").datepicker({
+                // changeMonth: true,
+                // changeYear: true,
+                format: 'dd/mm/yy'
+            });
+        });
+    </script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">

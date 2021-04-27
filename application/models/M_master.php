@@ -177,6 +177,17 @@
             return $this->db->get()->result();
         }
 
+        function loadBom()
+        {
+            $this->db->select('bom.*, material.kode as kode_material, material.nama as nama_material, material.spesifikasi, satuan.nama as nama_satuan');
+            $this->db->from('bom');
+            $this->db->join('material', 'bom.material = material.id', 'LEFT');
+            $this->db->join('satuan', 'bom.satuan = satuan.id', 'LEFT');
+            $this->db->order_by('bom.kode', 'ASC');
+
+            return $this->db->get()->result();
+        }
+
         function loadDetailBom($id)
         {
             $this->db->select('bom_child.*, material.kode as kode_material, material.nama as nama_material, material.spesifikasi, satuan.nama as nama_satuan');

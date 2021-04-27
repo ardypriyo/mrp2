@@ -13,6 +13,7 @@
         {
             $data['judul'] = 'Master Bill of Materials';
             $data['part'] = $this->M_master->loadMaster('material', '1');
+            $data['data'] = $this->M_master->loadBom();
             $this->load->view('include/header', $data);
             $this->load->view('include/sidebar');
             $this->load->view('Bom/index', $data);
