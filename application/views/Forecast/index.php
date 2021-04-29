@@ -33,6 +33,56 @@
                                                 <th>Status</th>
                                                 <th>#</th>
                                             </thead>
+                                            <tbody>
+                                                <?php
+                                                    $no = 1;
+                                                    foreach($data as $row)
+                                                    {
+                                                        ?>
+                                                            <tr>
+                                                                <td><?php echo $no++; ?></td>
+                                                                <td><?php echo $row->kode; ?></td>
+                                                                <td><?php echo date('d-M-Y', strtotime($row->tanggal)); ?></td>
+                                                                <td><?php echo $row->nama_customer; ?></td>
+                                                                <td>
+                                                                    <?php 
+                                                                        if($row->tipe == '1')
+                                                                        {
+                                                                            echo "Domestik";
+                                                                        } 
+                                                                        elseif($row->tipe == '2')
+                                                                        {
+                                                                            echo "Export";
+                                                                        }
+                                                                        elseif($row->tipe == '3')
+                                                                        {
+                                                                            echo "Semua";
+                                                                        }
+                                                                    ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php 
+                                                                        if($row->status == '0')
+                                                                        {
+                                                                            echo "<span class=\"badge badge-danger\">Unprocess</span>";
+                                                                        }
+                                                                        elseif($row->status == '1')
+                                                                        {
+                                                                            echo "<span class=\"badge badge-success\">Done</success>";
+                                                                        }
+                                                                    ?>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="btn-group">
+                                                                        <a href="<?php echo base_url().'Forecast/detail/'.$row->id; ?>" class="btn btn-xs btn-warning"><i class="fas fa-eye"></i></a>
+                                                                        <a href="" class="btn btn-xs btn-danger"><i class="fas fa-trash"></i></a>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        <?php
+                                                    }
+                                                ?>
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>

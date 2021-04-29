@@ -44,15 +44,15 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-header">REPORT</li>
+                        <!-- <li class="nav-header">REPORT</li>
                         <li class="nav-item">
-                            <a href="<?php echo base_url().'Forecast'; ?>" class="nav-link">
+                            <a href="<?php echo base_url().'Forecast/result'; ?>" class="nav-link">
                                 <i class="nav-icon fas fa-box"></i>
                                 <p>
                                     Forecast Result
                                 </p>
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav-header">PLAN</li>
                         <li class="nav-item">
                             <a href="<?php echo base_url().'Bom'; ?>" class="nav-link">

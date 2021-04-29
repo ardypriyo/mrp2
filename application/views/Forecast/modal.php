@@ -113,3 +113,40 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="prosesForecast" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="dialog">
+        <div class="modal-content">
+            <form method="POST" action="<?php echo base_url().'Forecast/prosesForecast' ?>">
+                <div class="modal-header">
+                    <h5 class="modal-title">Konfirmasi Proses Forecast</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <!-- <div class="form-group"> -->
+                        <!-- <label class="control-label">Nomor Dokumen</label> -->
+                        <input type="hidden" name="no_dokumen" class="form-control" readonly id="no_dokumen_proses" value="<?php echo $detail['kode']; ?>">
+                    <!-- </div> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <label class="control-label">ID Transaksi</label> -->
+                        <input type="hidden" name="id" class="form-control" readonly id="id_proses" value="<?php echo $detail['id'] ?>">
+                    <!-- </div> -->
+
+                    <ul>
+                        <li>Sebelum melakukan proses, pastikan seluruh data yang terdapat di master data sudah benar</li>
+                        <li>Pastikan BOM sudah dibuat dan sudah benar (Mixing maupun BOM Part)</li>
+                        <li>Pastikan qty forecast sudah diisi dengan benar</li>
+                    </ul>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Proses Forecast</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
